@@ -25,3 +25,9 @@ func _process(delta):
 func _on_button_pressed():
 	animCurrent += 1
 	$Node3D/SubViewport/godotsan2/AnimationPlayer.play(anims[(animCurrent % anims.size())])	
+
+
+
+func _on_check_button_toggled(toggled_on):
+	print($Panel/CheckButton.button_pressed)
+	mat.set_shader_parameter("bIsCelled",$Panel/CheckButton.button_pressed)

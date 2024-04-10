@@ -3,6 +3,7 @@ render_mode unshaded;
 uniform sampler2D tex:  filter_nearest;
 uniform float width;
 uniform float height;
+uniform bool bIsCelled = true;
 
 void make_kernel(inout vec4 n[9], sampler2D _tex, vec2 coord){
 	float w = 1.0 / 800.0;
@@ -25,28 +26,33 @@ void vertex() {
 
 void fragment() {
 	
-	vec4 n[9];
-	make_kernel(n,tex,UV);	
+	if (bIsCelled == true) {
 	
-	vec4 sh = n[2] + (2.0*n[5]) + n[8] - (n[0] 	+(2.0*n[3]) + n[6])	;	
-	vec4 sv = n[0] + (2.0*n[1]) + n[2] - (n[6] 	+(2.0*n[7]) + n[8])	;
+		vec4 n[9];
+		make_kernel(n,tex,UV);	
 	
-	float res  = clamp(sqrt(dot(sh,sh) + dot(sv,sv)),0.0,1.0);
-	res = 1.0 - res;
+		vec4 sh = n[2] + (2.0*n[5]) + n[8] - (n[0] 	+(2.0*n[3]) + n[6])	;	
+		vec4 sv = n[0] + (2.0*n[1]) + n[2] - (n[6] 	+(2.0*n[7]) + n[8])	;
 	
-		if (res > 0.1) {
-		res = 1.0;
+		float res  = clamp(sqrt(dot(sh,sh) + dot(sv,sv)),0.0,1.0);
+		res = 1.0 - res;
+	
+			if (res > 0.1) {
+			res = 1.0;
+		} else {
+			res = 0.0;
+		}
+	
+		//vec4 pre = res*  texture(tex,UV);
+		vec4 pre = vec4(vec3(res),1.0);
+		//if (pre.x > 0.90 && pre.y > 0.90 && pre.z > 0.90){
+		//pre = vec4(0.0,0.0,0.0,1.0);
+		//}	
+		
+		COLOR = pre * texture(tex,UV);
 	} else {
-		res = 0.0;
+		COLOR = texture(tex,UV);
 	}
-	
-
-	//vec4 pre = res*  texture(tex,UV);
-	vec4 pre = vec4(vec3(res),1.0);
-	//if (pre.x > 0.90 && pre.y > 0.90 && pre.z > 0.90){
-	//pre = vec4(0.0,0.0,0.0,1.0);
-	//}
-	COLOR = pre * texture(tex,UV);
 	
 	
 }

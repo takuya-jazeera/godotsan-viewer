@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://wop4x478mykb"]
+[gd_scene load_steps=5 format=3 uid="uid://wop4x478mykb"]
 
 [ext_resource type="Script" path="res://Scenes/Viewer.gd" id="1_g36m3"]
 [ext_resource type="Material" uid="uid://dm5kxwyooco42" path="res://Materials/sobel.tres" id="1_n36bk"]
 [ext_resource type="PackedScene" uid="uid://bhhdj1f117fdb" path="res://3DScene.tscn" id="2_t8bjt"]
+
+[sub_resource type="Theme" id="Theme_whijl"]
 
 [node name="Viewer" type="Node2D"]
 script = ExtResource("1_g36m3")
 
 [node name="Panel" type="Panel" parent="."]
 material = ExtResource("1_n36bk")
+custom_minimum_size = Vector2(200, 60)
 offset_right = 799.0
 offset_bottom = 602.0
+theme = SubResource("Theme_whijl")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 30.0
-offset_right = 168.0
-offset_bottom = 61.0
+offset_left = 23.0
+offset_top = 562.0
+offset_right = 157.0
+offset_bottom = 593.0
 text = "次のアニメーションへ"
 
 [node name="Label" type="Label" parent="Panel"]
@@ -29,8 +33,15 @@ offset_bottom = 76.0
 text = "Copyrighted by やいぎさん
 Modeled by Takuya"
 
+[node name="CheckButton" type="CheckButton" parent="Panel"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+button_pressed = true
+
 [node name="Node3D" parent="." instance=ExtResource("2_t8bjt")]
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Panel/CheckButton" to="." method="_on_check_button_toggled"]
