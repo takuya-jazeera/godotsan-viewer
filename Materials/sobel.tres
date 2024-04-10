@@ -7,3 +7,4 @@ resource_local_to_scene = true
 shader = ExtResource("1_n0ci7")
 shader_parameter/width = null
 shader_parameter/height = null
+shader_parameter/bIsCelled = true
