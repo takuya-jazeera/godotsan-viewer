@@ -47,7 +47,7 @@ func _process(delta):
 	
 	
 	var khi = interpolate_lapse / interpolate_interval
-	$godotsan2.quaternion = p.slerp(q,khi) * r.slerp(s,khi)
+	$SubViewport/godotsan2.quaternion = p.slerp(q,khi) * r.slerp(s,khi)
 	interpolate_lapse += delta
 	
 	if interpolate_lapse > interpolate_interval :	

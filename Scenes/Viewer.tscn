@@ -31,4 +31,6 @@ Modeled by Takuya"
 
 [node name="Node3D" parent="." instance=ExtResource("2_t8bjt")]
 
+[node name="SubViewport" type="SubViewport" parent="."]
+
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

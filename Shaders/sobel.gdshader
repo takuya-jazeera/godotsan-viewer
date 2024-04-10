@@ -1,5 +1,6 @@
 shader_type canvas_item;
-uniform sampler2D tex: filter_nearest;
+render_mode unshaded;
+uniform sampler2D tex:  filter_nearest;
 uniform float width;
 uniform float height;
 
@@ -30,12 +31,22 @@ void fragment() {
 	vec4 sh = n[2] + (2.0*n[5]) + n[8] - (n[0] 	+(2.0*n[3]) + n[6])	;	
 	vec4 sv = n[0] + (2.0*n[1]) + n[2] - (n[6] 	+(2.0*n[7]) + n[8])	;
 	
-	float res  = sqrt(dot(sh,sh) + dot(sv,sv));
-	vec4 pre = res*  texture(tex,UV);
-	if (pre.x > 0.60 && pre.y > 0.60 && pre.z > 0.60){
-		pre = vec4(0.0,0.0,0.0,1.0);
+	float res  = clamp(sqrt(dot(sh,sh) + dot(sv,sv)),0.0,1.0);
+	res = 1.0 - res;
+	
+		if (res > 0.1) {
+		res = 1.0;
+	} else {
+		res = 0.0;
 	}
-	COLOR = pre;
+	
+
+	//vec4 pre = res*  texture(tex,UV);
+	vec4 pre = vec4(vec3(res),1.0);
+	//if (pre.x > 0.90 && pre.y > 0.90 && pre.z > 0.90){
+	//pre = vec4(0.0,0.0,0.0,1.0);
+	//}
+	COLOR = pre * texture(tex,UV);
 	
 	
 }

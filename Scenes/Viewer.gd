@@ -9,11 +9,12 @@ var anims
 func _ready():
 	scene = $Node3D
 	mat  = $Panel.material
-	anims = $Node3D/godotsan2/AnimationPlayer.get_animation_list()
+	anims = $Node3D/SubViewport/godotsan2/AnimationPlayer.get_animation_list()
 	$Panel.size = get_window().size
-	mat.set_shader_parameter("tex",scene.get_viewport().get_texture())
+	mat.set_shader_parameter("tex",scene.get_node("SubViewport").get_texture())
+
 	
-	$Node3D/godotsan2/AnimationPlayer.play(anims[(animCurrent % anims.size())])	
+	$Node3D/SubViewport/godotsan2/AnimationPlayer.play(anims[(animCurrent % anims.size())])	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,4 +24,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	animCurrent += 1
-	$Node3D/godotsan2/AnimationPlayer.play(anims[(animCurrent % anims.size())])	
+	$Node3D/SubViewport/godotsan2/AnimationPlayer.play(anims[(animCurrent % anims.size())])	
