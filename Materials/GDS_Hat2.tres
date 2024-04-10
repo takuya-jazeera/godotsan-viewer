@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dsta2eauxqbw7"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_rmoqk"]
+[ext_resource type="Texture2D" uid="uid://dl1p15650koy6" path="res://Models/godotsan2_hat.png" id="2_huobn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rmoqk")
+shader_parameter/tex = ExtResource("2_huobn")

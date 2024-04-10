@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://0vgptert7lf3"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_lrute"]
+[ext_resource type="Texture2D" uid="uid://d2ruyv3wmifw1" path="res://Models/godotsan2_boots_etc.png" id="2_f4xvy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lrute")
+shader_parameter/tex = ExtResource("2_f4xvy")

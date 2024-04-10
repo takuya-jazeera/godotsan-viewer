@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1s5kiwbt5xmi"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_nwfbr"]
+[ext_resource type="Texture2D" uid="uid://3h0c6y2v8w7c" path="res://Models/godotsan2_eyes.png" id="2_a0up0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nwfbr")
+shader_parameter/tex = ExtResource("2_a0up0")

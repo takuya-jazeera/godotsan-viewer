@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dcqthphp16jy0"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_k8pwb"]
+[ext_resource type="Texture2D" uid="uid://brwixdv8wnwu6" path="res://Models/godotsan2_godot_san_face.png" id="2_hroav"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_k8pwb")
+shader_parameter/tex = ExtResource("2_hroav")

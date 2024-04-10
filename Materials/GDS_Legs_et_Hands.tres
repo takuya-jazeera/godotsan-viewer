@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cj1bdhjilmr6x"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_hyfw6"]
+[ext_resource type="Texture2D" uid="uid://b0pur11oqp7jb" path="res://Models/godotsan2_leg_hand.png" id="2_sbgrr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hyfw6")
+shader_parameter/tex = ExtResource("2_sbgrr")

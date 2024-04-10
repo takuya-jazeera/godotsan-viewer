@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c7lvpw4w8qu4y"]
+
+[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_agydc"]
+[ext_resource type="Texture2D" uid="uid://n65omdk5f425" path="res://Models/godotsan2_blouse.png" id="2_traol"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_agydc")
+shader_parameter/tex = ExtResource("2_traol")
