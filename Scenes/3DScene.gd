@@ -40,10 +40,10 @@ func _process(delta):
 	var p = Quaternion(0.0,cos(theta),0.0,sin(theta))
 	var q = Quaternion(0.0,cos(theta - dtheta),0.0,sin(theta - dtheta))
 	
-	var u = clamp (phi, PI*0.5 - 2.0, PI * 0.5 + 2.0)
-	var v = clamp (phi - dphi, PI*0.5 - 2.0, PI * 0.5 + 2.0)
+	var u = clamp (phi, PI*0.5 - 0.1, PI * 0.5 + 0.1)
+	var v = clamp (phi - dphi, PI*0.5 - 0.1, PI * 0.5 + 0.1)
 	var r = Quaternion(cos(u),0.0,0.0,sin(u))
-	var s = Quaternion(cos(u),0.0,0.0,sin(u))
+	var s = Quaternion(cos(v),0.0,0.0,sin(v))
 	
 	
 	var khi = interpolate_lapse / interpolate_interval
