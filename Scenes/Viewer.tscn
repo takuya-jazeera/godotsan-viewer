@@ -44,7 +44,5 @@ text = "セルを表示"
 
 [node name="Node3D" parent="." instance=ExtResource("2_t8bjt")]
 
-[node name="SubViewport" type="SubViewport" parent="."]
-
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Panel/CheckButton" to="." method="_on_check_button_toggled"]

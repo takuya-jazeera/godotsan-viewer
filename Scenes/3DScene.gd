@@ -38,20 +38,20 @@ func _process(delta):
 	#theta += delta 
 	#$godotsan2.quaternion = Quaternion(0.0,cos(theta * 0.5),0.0,sin(theta * 0.5))
 	var p = Quaternion(0.0,cos(theta),0.0,sin(theta))
-	var q = Quaternion(0.0,cos(theta - dtheta),0.0,sin(theta - dtheta))
+	#var q = Quaternion(0.0,cos(theta - dtheta),0.0,sin(theta - dtheta))
 	
 	var u = clamp (phi, PI*0.5 - 0.1, PI * 0.5 + 0.1)
-	var v = clamp (phi - dphi, PI*0.5 - 0.1, PI * 0.5 + 0.1)
 	var r = Quaternion(cos(u),0.0,0.0,sin(u))
-	var s = Quaternion(cos(v),0.0,0.0,sin(v))
 	
 	
 	var khi = interpolate_lapse / interpolate_interval
-	$SubViewport/godotsan2.quaternion = p.slerp(q,khi) * r.slerp(s,khi)
+	$SubViewport/godotsan2.quaternion = p * r;
 	interpolate_lapse += delta
 	
 	if interpolate_lapse > interpolate_interval :	
 		current_mouse_position = get_viewport().get_mouse_position()
-		phi = dphi + PI * 0.5
-		dtheta = (current_mouse_position.x - get_window().size.x * 0.5) * 0.0004
-		dphi = clamp((current_mouse_position.y - get_window().size.y * 0.5) * 0.0002,-0.2,0.2)
+		var d = current_mouse_position - get_window().size * 0.5;
+		if d.dot(d) < 90000.0 :
+			dphi = clamp((- current_mouse_position.y + get_window().size.y * 0.5) * 0.0002,-0.4,0.4)
+			phi = dphi + PI * 0.5
+			theta = (-current_mouse_position.x + get_window().size.x * 0.5) * 0.002 + PI * 0.5;

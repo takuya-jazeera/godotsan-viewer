@@ -6,8 +6,10 @@ uniform float height;
 uniform bool bIsCelled = true;
 
 void make_kernel(inout vec4 n[9], sampler2D _tex, vec2 coord){
-	float w = 1.0 / 800.0;
-	float h = 1.0 / 600.0;
+	//float w = 1.0 / 1200.0;
+	//float h = 1.0 / 800.0;
+	float w = 0.000833;
+	float h = 0.001250;
 	
 	n[0] = texture(_tex, coord + vec2( -w, -h));
 	n[1] = texture(_tex, coord + vec2(0.0, -h));
