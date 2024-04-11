@@ -50,8 +50,14 @@ func _process(delta):
 	
 	if interpolate_lapse > interpolate_interval :	
 		current_mouse_position = get_viewport().get_mouse_position()
+<<<<<<< HEAD:Scenes/3DScene.gd
 		var d = current_mouse_position - get_window().size * 0.5;
 		if d.dot(d) < 90000.0 :
 			dphi = clamp((- current_mouse_position.y + get_window().size.y * 0.5) * 0.0002,-0.4,0.4)
 			phi = dphi + PI * 0.5
 			theta = (-current_mouse_position.x + get_window().size.x * 0.5) * 0.002 + PI * 0.5;
+=======
+		phi = clamp(dphi,-0.5,0.5) + PI * 0.5
+		dtheta = (current_mouse_position.x - get_window().size.x * 0.5) * 0.0004
+		dphi = clamp((current_mouse_position.y - get_window().size.y * 0.5) * 0.0002,-0.2,0.2)
+>>>>>>> 845094055764d83295b3142ece9ae98ff1e65671:Scripts/3DScene.gd

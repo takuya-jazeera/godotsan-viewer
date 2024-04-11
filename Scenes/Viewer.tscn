@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://wop4x478mykb"]
 
-[ext_resource type="Script" path="res://Scenes/Viewer.gd" id="1_g36m3"]
+[ext_resource type="Script" path="res://Scripts/Viewer.gd" id="1_g36m3"]
 [ext_resource type="Material" uid="uid://dm5kxwyooco42" path="res://Materials/sobel.tres" id="1_n36bk"]
 [ext_resource type="PackedScene" uid="uid://bhhdj1f117fdb" path="res://3DScene.tscn" id="2_t8bjt"]
 
