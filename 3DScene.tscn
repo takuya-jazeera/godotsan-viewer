@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhhdj1f117fdb"]
 
-[ext_resource type="Script" path="res://Scenes/3DScene.gd" id="1_fjng2"]
+[ext_resource type="Script" path="res://Scripts/3DScene.gd" id="1_fjng2"]
 [ext_resource type="PackedScene" uid="uid://dejmxxlfeh5ba" path="res://Models/godotsan2.glb" id="2_tn8l2"]
 
 [node name="Node3D" type="Node3D"]

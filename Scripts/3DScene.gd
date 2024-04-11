@@ -52,6 +52,6 @@ func _process(delta):
 	
 	if interpolate_lapse > interpolate_interval :	
 		current_mouse_position = get_viewport().get_mouse_position()
-		phi = dphi + PI * 0.5
+		phi = clamp(dphi,-0.5,0.5) + PI * 0.5
 		dtheta = (current_mouse_position.x - get_window().size.x * 0.5) * 0.0004
 		dphi = clamp((current_mouse_position.y - get_window().size.y * 0.5) * 0.0002,-0.2,0.2)
