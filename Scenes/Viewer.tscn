@@ -42,7 +42,17 @@ offset_bottom = 45.0
 button_pressed = true
 text = "セルを表示"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 553.0
+offset_right = 792.0
+offset_bottom = 609.0
+text = "マウスホイールでズーム調整できますよー"
+scroll_active = false
+
 [node name="Node3D" parent="." instance=ExtResource("2_t8bjt")]
 
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Panel/CheckButton" to="." method="_on_check_button_toggled"]

@@ -4,6 +4,7 @@ var mat
 var scene 
 var animCurrent = 0
 var anims 
+
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -31,3 +32,13 @@ func _on_button_pressed():
 func _on_check_button_toggled(toggled_on):
 	print($Panel/CheckButton.button_pressed)
 	mat.set_shader_parameter("bIsCelled",$Panel/CheckButton.button_pressed)
+
+
+func _on_panel_gui_input(event):
+	if event is InputEventMouseButton :
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			$Node3D.zoom = +0.1
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			$Node3D.zoom = -0.1
+		else :
+			$Node3D.zoom = 0.0
