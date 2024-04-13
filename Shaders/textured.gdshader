@@ -11,9 +11,9 @@ void vertex() {
 }
 
 void fragment() {
-	vec3 q = VERTEX - CAMERA_POSITION_WORLD;
-	ALBEDO = vec3(q.z);
-	//ALBEDO = texture(tex,UV).xyz;
+	
+	//ALBEDO = VERTEX - CAMERA_POSITION_WORLD;
+	ALBEDO = texture(tex,UV).xyz;
 	// Called for every pixel the material is visible on.
 }
 

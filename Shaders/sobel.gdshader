@@ -1,15 +1,16 @@
 shader_type canvas_item;
 render_mode unshaded;
 uniform sampler2D tex:  filter_nearest;
+uniform sampler2D depth: filter_nearest;
 uniform float width;
 uniform float height;
 uniform bool bIsCelled = true;
 
 void make_kernel(inout vec4 n[9], sampler2D _tex, vec2 coord){
-	//float w = 1.0 / 1200.0;
-	//float h = 1.0 / 800.0;
-	float w = 0.000833;
-	float h = 0.001250;
+	float w = 1.0 / 800.0;
+	float h = 1.0 / 600.0;
+	//float w = 0.000833 * 2;
+	//float h = 0.001250 * 2;
 	
 	n[0] = texture(_tex, coord + vec2( -w, -h));
 	n[1] = texture(_tex, coord + vec2(0.0, -h));
@@ -31,7 +32,7 @@ void fragment() {
 	if (bIsCelled == true) {
 	
 		vec4 n[9];
-		make_kernel(n,tex,UV);	
+		make_kernel(n,depth,UV);	
 	
 		vec4 sh = n[2] + (2.0*n[5]) + n[8] - (n[0] 	+(2.0*n[3]) + n[6])	;	
 		vec4 sv = n[0] + (2.0*n[1]) + n[2] - (n[6] 	+(2.0*n[7]) + n[8])	;
@@ -51,7 +52,7 @@ void fragment() {
 		//pre = vec4(0.0,0.0,0.0,1.0);
 		//}	
 		
-		COLOR = pre * texture(tex,UV);
+		COLOR = pre * texture(depth,UV) * texture(tex,UV);
 	} else {
 		COLOR = texture(tex,UV);
 	}

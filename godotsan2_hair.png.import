@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrsmwsd6q45w"
-path="res://.godot/imported/godotsan_cloth.png-71f0561003bc653635bea708ddf3f6b6.ctex"
+uid="uid://1mgh24ch4igm"
+path="res://.godot/imported/godotsan2_hair.png-e3ff20e46f816555c486d16d77a6c728.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/godotsan_cloth.png"
-dest_files=["res://.godot/imported/godotsan_cloth.png-71f0561003bc653635bea708ddf3f6b6.ctex"]
+source_file="res://godotsan2_hair.png"
+dest_files=["res://.godot/imported/godotsan2_hair.png-e3ff20e46f816555c486d16d77a6c728.ctex"]
 
 [params]
 

@@ -10,6 +10,7 @@ var animation_list
 
 #var first_camera_position = position
 @onready var camera = $SubViewport/Camera3D
+@onready var camera2 = $SubViewport2/Camera3D2
 @onready var camera_zoom_normal = $SubViewport/Camera3D.position.normalized()
 
 # latitude
@@ -58,6 +59,7 @@ func _process(delta):
 	
 	var khi = interpolate_lapse / interpolate_interval
 	$SubViewport/godotsan2.quaternion = r * prev_rotation.slerp(next_rotation,khi)
+	$SubViewport2/godotsan3.quaternion = $SubViewport/godotsan2.quaternion
 	interpolate_lapse += delta
 	
 	if interpolate_lapse > interpolate_interval :	
@@ -80,4 +82,7 @@ func _process(delta):
 		interpolate_lapse = 0.0
 
 	camera.position += camera_zoom_normal * zoom
+	camera2.position = camera.position
+	
+	$SubViewport2/godotsan3.position = $SubViewport/godotsan2.position
 	zoom = 0.0

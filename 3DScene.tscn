@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhhdj1f117fdb"]
+[gd_scene load_steps=4 format=3 uid="uid://bhhdj1f117fdb"]
 
 [ext_resource type="Script" path="res://Scripts/3DScene.gd" id="1_fjng2"]
 [ext_resource type="PackedScene" uid="uid://dejmxxlfeh5ba" path="res://Models/godotsan2.glb" id="2_tn8l2"]
+[ext_resource type="Script" path="res://SubViewport2.gd" id="3_uylw8"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_fjng2")
@@ -11,7 +12,16 @@ own_world_3d = true
 transparent_bg = true
 size = Vector2i(800, 600)
 
+[node name="godotsan2" parent="SubViewport" instance=ExtResource("2_tn8l2")]
+
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974453, 2.19986)
 
-[node name="godotsan2" parent="SubViewport" instance=ExtResource("2_tn8l2")]
+[node name="SubViewport2" type="SubViewport" parent="."]
+size = Vector2i(800, 600)
+script = ExtResource("3_uylw8")
+
+[node name="godotsan3" parent="SubViewport2" instance=ExtResource("2_tn8l2")]
+
+[node name="Camera3D2" type="Camera3D" parent="SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974453, 2.19986)

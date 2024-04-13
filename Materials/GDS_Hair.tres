@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cfauokor6ctuw"]
 
-[ext_resource type="Shader" path="res://Shaders/toonshader.gdshader" id="1_xb6pt"]
+[ext_resource type="Shader" path="res://Shaders/textured.gdshader" id="1_ahgp2"]
 [ext_resource type="Texture2D" uid="uid://clrveb4e1vc7j" path="res://Models/godotsan2_hair.png" id="2_bdn7u"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_xb6pt")
+shader = ExtResource("1_ahgp2")
 shader_parameter/tex = ExtResource("2_bdn7u")
